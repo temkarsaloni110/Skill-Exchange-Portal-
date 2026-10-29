@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block title %}Home | Skill Exchange Portal{% endblock %}
+{% block content %}
+<section class="old-hero">
+ <div class="hero-copy"><span class="eyebrow">LEARN • TEACH • CONNECT</span><h1>Share Skills.<br><span>Learn Skills.</span></h1><p>Connect with people, exchange knowledge and learn useful skills from each other.</p><div class="hero-actions"><a class="button" href="/register">Get Started</a><a class="login-link" href="/login">Login</a></div></div>
+ <div class="hero-art" aria-label="Skill sharing illustration"><div class="sun-glow"></div><div class="bulb">💡</div><div class="mini-card left">🎨<small>Creativity</small></div><div class="mini-card right">🧠<small>Knowledge</small></div><div class="art-caption">Ideas grow when we share.</div></div>
+</section>
+<section class="how-section"><span class="eyebrow">HOW IT WORKS</span><h2>One Platform. Many Skills.</h2><div class="features">
+ <a class="card feature-card" href="/skills"><div class="feature-icon learn">▤</div><h3>Learn</h3><p>Find people who can teach you useful skills.</p><span class="card-cta">Explore skills →</span></a>
+ <a class="card feature-card" href="/add_skill"><div class="feature-icon teach">♟</div><h3>Teach</h3><p>Share your knowledge with other users.</p><span class="card-cta">Share a skill →</span></a>
+ <a class="card feature-card" href="/chats"><div class="feature-icon exchange">✉</div><h3>Exchange</h3><p>Send and receive skill exchange requests.</p><span class="card-cta">Start connecting →</span></a>
+</div></section>
+{% endblock %}

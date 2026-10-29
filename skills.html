@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Find Skills{% endblock %}
+{% block content %}<section class="container"><span class="eyebrow">COMMUNITY</span><h1>Find Skills & People</h1><p class="muted">Search for a skill, send an exchange request, or start a conversation.</p>
+<form class="search-form" method="GET"><input type="text" name="search" placeholder="Search skills..." value="{{ search }}"><button>Search</button></form>
+<div class="skills-grid">{% for skill in skills %}<div class="card"><span class="pill">{{ skill["type"] }}</span><h2>{{ skill["skill_name"] }}</h2><p>{{ skill["description"] }}</p><p class="muted">Shared by <strong>{{ skill["name"] }}</strong></p>
+<div class="actions"><form method="POST" action="/request_skill/{{ skill['id'] }}"><button>Request Exchange</button></form><a class="button secondary" href="/chat/{{ skill['user_id'] }}">Chat</a></div></div>{% else %}<div class="empty">No skills found. Try another search.</div>{% endfor %}</div>
+</section>{% endblock %}

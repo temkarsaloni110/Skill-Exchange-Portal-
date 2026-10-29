@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block title %}Chat with {{ other["name"] }}{% endblock %}
+{% block content %}<section class="chat-shell">
+  <div class="chat-header"><a class="back-link" href="/chats">←</a><div class="avatar">{{ other["name"][0]|upper }}</div><div><h2>{{ other["name"] }}</h2><p>Skill Exchange conversation</p></div></div>
+  <div class="messages" id="messages">
+    {% for msg in messages %}<div class="message-row {% if msg['sender_id'] == session['user_id'] %}mine{% else %}theirs{% endif %}"><div class="bubble"><p>{{ msg["message"] }}</p><time>{{ msg["sent_at"] }}</time></div></div>
+    {% else %}<div class="chat-empty"><div class="chat-icon">✦</div><h3>Start sharing ideas</h3><p>Ask about a skill, discuss how to learn it, or plan an exchange.</p></div>{% endfor %}
+  </div>
+  <form class="message-form" method="POST"><textarea name="message" placeholder="Write a message..." maxlength="2000" rows="1" required></textarea><button type="submit" aria-label="Send message">Send ➤</button></form>
+  <p class="chat-note">Messages are saved in the local SQLite database on this computer.</p>
+</section>
+<script>const box = document.getElementById('messages'); if(box) box.scrollTop = box.scrollHeight;</script>
+{% endblock %}

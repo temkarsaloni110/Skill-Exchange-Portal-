@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Add Skill{% endblock %}
+{% block content %}<div class="form-container"><h1>Add Your Skill</h1><p class="muted">Tell the community what you can teach or want to learn.</p>
+<form method="POST">
+  <label>Skill name</label><input type="text" name="skill_name" placeholder="e.g. Cooking, Drawing, Data Analysis" required>
+  <label>Description</label><textarea name="description" placeholder="Describe the skill or what you want to learn..." required></textarea>
+  <label>Choose one</label><select name="type"><option value="I Can Teach">I Can Teach</option><option value="I Want To Learn">I Want To Learn</option></select>
+  <button type="submit">Save Skill</button>
+</form></div>{% endblock %}

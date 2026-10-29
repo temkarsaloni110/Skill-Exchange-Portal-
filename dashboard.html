@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}
+{% block content %}<section class="container">
+  <div class="page-heading"><div><span class="eyebrow">YOUR SPACE</span><h1>Welcome, {{ session["user_name"] }}!</h1><p class="muted">Manage your skills, requests, and conversations.</p></div><a class="button" href="/add_skill">+ Add New Skill</a></div>
+  <h2>My Skills</h2>
+  <div class="skills-grid">{% for skill in skills %}<div class="card"><h3>{{ skill["skill_name"] }}</h3><p>{{ skill["description"] }}</p><span class="pill">{{ skill["type"] }}</span></div>{% else %}<div class="empty">You haven't added any skills yet.</div>{% endfor %}</div>
+  <div class="section-title"><h2>Exchange Requests</h2><a href="/chats">Open Chatbox →</a></div>
+  {% for req in requests %}<div class="card request-card"><div><h3>{{ req["skill_name"] }}</h3><p>Request from: <strong>{{ req["sender_name"] }}</strong></p><p>Status: <span class="pill">{{ req["status"] }}</span></p></div>
+  <div class="actions">{% if req["status"] == "Pending" %}<form method="POST" action="/request/{{ req['id'] }}/Accepted"><button>Accept</button></form><form method="POST" action="/request/{{ req['id'] }}/Rejected"><button class="secondary">Reject</button></form>{% endif %}<a class="button secondary" href="/chat/{{ req['sender_id'] }}">Chat</a></div></div>
+  {% else %}<div class="empty">No requests yet.</div>{% endfor %}
+</section>{% endblock %}

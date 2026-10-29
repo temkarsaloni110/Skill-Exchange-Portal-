@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Chatbox{% endblock %}
+{% block content %}<section class="container chat-list-page"><span class="eyebrow">CONVERSATIONS</span><h1>Your Chatbox</h1><p class="muted">Choose a member to discuss ideas, skills, or an exchange request.</p>
+<div class="people-list">{% for person in people %}<a class="person-row" href="/chat/{{ person['id'] }}"><div class="avatar">{{ person["name"][0]|upper }}</div><div class="person-info"><strong>{{ person["name"] }}</strong><span>{{ person["last_message"] or "Start a conversation about skills and ideas" }}</span></div><div class="person-time">{{ person["last_time"] or "" }}</div><span class="arrow">›</span></a>{% else %}<div class="empty">No other members yet. Invite someone to register!</div>{% endfor %}</div>
+</section>{% endblock %}
